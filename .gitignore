@@ -1,0 +1,22 @@
+.next/
+node_modules/
+out/
+dist/
+.env*
+!.env.example
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+debug.log
+tsconfig.tsbuildinfo
+
+# Local project planning and agent instruction documents
+AGENTS.md
+COMPONENTS.md
+COPYWRITING.md
+DESIGN.md
+MOTION.md
+PAGES.md
+SKILLS.md
+TECH_STACK.md
