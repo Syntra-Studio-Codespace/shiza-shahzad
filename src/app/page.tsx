@@ -5,24 +5,26 @@ import { PortfolioMotion } from "../components/PortfolioMotion";
 
 const contentStates = [
   {
-    label: "01 / Research",
-    title: "Research work",
-    body: "Project titles, methods, figures, and outcomes will appear here once Shiza provides verified research details.",
+    label: "01 / Verified research",
+    title: "ScienceDirect research article",
+    body: "The current research index contains one verified external research link supplied for Shiza. Full citation details should be completed only after the article metadata is confirmed.",
+    href: "https://www.sciencedirect.com/science/article/pii/S3050787126003446?via%3Dihub",
+    action: "Open article",
   },
   {
-    label: "02 / Publications",
-    title: "Scholarly record",
-    body: "Publication entries are intentionally hidden until real citation metadata, links, or DOI details are supplied.",
+    label: "02 / Citation status",
+    title: "Citation metadata pending",
+    body: "Title, authorship order, journal issue, DOI, and publication date are intentionally not shown here until they can be verified from a stable source.",
   },
   {
-    label: "03 / Experience",
-    title: "Academic and laboratory timeline",
-    body: "Education, laboratory roles, and professional milestones can be added without changing the visual system.",
+    label: "03 / Future additions",
+    title: "Research context to be provided",
+    body: "Methods, figures, abstracts, and supporting laboratory context can be added later without inventing any academic or institutional details.",
   },
 ];
 
 const readinessItems = [
-  "Typed content model for future research and publication data",
+  "One verified ScienceDirect research link recorded",
   "Editorial maroon and beige visual system",
   "Responsive home composition for scientific audiences",
   "No fabricated biography, metrics, affiliations, or citations",
@@ -62,9 +64,10 @@ function ProfileSection() {
         <h2 id="profile-title" data-section-reveal>A research presence built around evidence.</h2>
         <p data-section-reveal>
           This first version establishes the structure and tone of Shiza's
-          portfolio using only confirmed information. The design is ready for a
-          biography, education, laboratory experience, research projects, and
-          publication metadata when those details are available.
+          portfolio using only confirmed information, including a single
+          external research record. The design is ready for a biography,
+          education, laboratory experience, and publication metadata when those
+          details are available.
         </p>
       </div>
       <div className="readiness-grid" aria-label="Current site readiness" data-stagger-reveal>
@@ -85,14 +88,21 @@ function ResearchSection() {
       <div className="section-shell research-inner">
         <div>
           <p className="eyebrow light" data-section-reveal>Research index</p>
-          <h2 id="research-title" data-section-reveal>Prepared for real scientific work.</h2>
+          <h2 id="research-title" data-section-reveal>One verified research record.</h2>
         </div>
         <div className="content-state-list" data-stagger-reveal>
           {contentStates.map((item) => (
             <article className="content-state" key={item.label}>
               <p>{item.label}</p>
-              <h3>{item.title}</h3>
-              <span>{item.body}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <span>{item.body}</span>
+                {"href" in item ? (
+                  <a className="research-link" href={item.href} target="_blank" rel="noreferrer">
+                    {item.action}
+                  </a>
+                ) : null}
+              </div>
             </article>
           ))}
         </div>

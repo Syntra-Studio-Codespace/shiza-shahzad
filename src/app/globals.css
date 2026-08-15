@@ -567,8 +567,34 @@ h1 {
 }
 
 .content-state span {
-  grid-column: 2;
+  display: block;
   color: rgba(251, 247, 240, 0.74);
+}
+
+.research-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  color: var(--surface-warm);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.research-link::after {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.research-link:hover::after {
+  transform: scaleX(1.28);
 }
 
 .contact-section {
