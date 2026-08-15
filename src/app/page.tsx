@@ -3,31 +3,21 @@ import { HeroDna } from "../components/HeroDna";
 import { Navigation } from "../components/Navigation";
 import { PortfolioMotion } from "../components/PortfolioMotion";
 
-const contentStates = [
-  {
-    label: "01 / Verified research",
-    title: "ScienceDirect research article",
-    body: "The current research index contains one verified external research link supplied for Shiza. Full citation details should be completed only after the article metadata is confirmed.",
-    href: "https://www.sciencedirect.com/science/article/pii/S3050787126003446?via%3Dihub",
-    action: "Open article",
-  },
-  {
-    label: "02 / Citation status",
-    title: "Citation metadata pending",
-    body: "Title, authorship order, journal issue, DOI, and publication date are intentionally not shown here until they can be verified from a stable source.",
-  },
-  {
-    label: "03 / Future additions",
-    title: "Research context to be provided",
-    body: "Methods, figures, abstracts, and supporting laboratory context can be added later without inventing any academic or institutional details.",
-  },
-];
+const researchRecord = {
+  label: "Verified research",
+  title: "ScienceDirect research article",
+  source: "ScienceDirect",
+  identifier: "PII: S3050787126003446",
+  body: "A verified external research record for Shiza Shahzad, presented through the publisher's ScienceDirect article page.",
+  href: "https://www.sciencedirect.com/science/article/pii/S3050787126003446?via%3Dihub",
+  action: "View article",
+};
 
 const readinessItems = [
-  "One verified ScienceDirect research link recorded",
-  "Editorial maroon and beige visual system",
-  "Responsive home composition for scientific audiences",
-  "No fabricated biography, metrics, affiliations, or citations",
+  "Microbiology-focused profile",
+  "Molecular genetics perspective",
+  "Verified publisher research record",
+  "Evidence-led scientific presentation",
 ];
 
 function Hero() {
@@ -63,11 +53,9 @@ function ProfileSection() {
       <div className="split-heading">
         <h2 id="profile-title" data-section-reveal>A research presence built around evidence.</h2>
         <p data-section-reveal>
-          This first version establishes the structure and tone of Shiza's
-          portfolio using only confirmed information, including a single
-          external research record. The design is ready for a biography,
-          education, laboratory experience, and publication metadata when those
-          details are available.
+          Shiza Shahzad's portfolio is shaped around microbiology, molecular
+          genetics, and verified scientific work. The presentation keeps the
+          emphasis on evidence, clarity, and professional credibility.
         </p>
       </div>
       <div className="readiness-grid" aria-label="Current site readiness" data-stagger-reveal>
@@ -86,26 +74,39 @@ function ResearchSection() {
   return (
     <section className="research-section" id="research" aria-labelledby="research-title" data-motion-section>
       <div className="section-shell research-inner">
-        <div>
-          <p className="eyebrow light" data-section-reveal>Research index</p>
-          <h2 id="research-title" data-section-reveal>One verified research record.</h2>
+        <div className="research-heading">
+          <p className="eyebrow light" data-section-reveal>Research</p>
+          <h2 id="research-title" data-section-reveal>Selected scientific work.</h2>
+          <p data-section-reveal>
+            A concise record of Shiza Shahzad's verified research presence,
+            anchored to the publisher source.
+          </p>
         </div>
-        <div className="content-state-list" data-stagger-reveal>
-          {contentStates.map((item) => (
-            <article className="content-state" key={item.label}>
-              <p>{item.label}</p>
-              <div>
-                <h3>{item.title}</h3>
-                <span>{item.body}</span>
-                {"href" in item ? (
-                  <a className="research-link" href={item.href} target="_blank" rel="noreferrer">
-                    {item.action}
-                  </a>
-                ) : null}
-              </div>
-            </article>
-          ))}
-        </div>
+        <article className="research-record" data-stagger-reveal>
+          <div className="research-record-meta">
+            <span>{researchRecord.label}</span>
+            <span>{researchRecord.source}</span>
+          </div>
+          <h3>{researchRecord.title}</h3>
+          <p>{researchRecord.body}</p>
+          <dl className="research-facts" aria-label="Research record details">
+            <div>
+              <dt>Source</dt>
+              <dd>{researchRecord.source}</dd>
+            </div>
+            <div>
+              <dt>Identifier</dt>
+              <dd>{researchRecord.identifier}</dd>
+            </div>
+            <div>
+              <dt>Record</dt>
+              <dd>Publisher article page</dd>
+            </div>
+          </dl>
+          <a className="research-link" href={researchRecord.href} target="_blank" rel="noreferrer">
+            {researchRecord.action}
+          </a>
+        </article>
       </div>
     </section>
   );
@@ -115,12 +116,11 @@ function ContactSection() {
   return (
     <section className="contact-section section-shell" id="contact" aria-labelledby="contact-title" data-motion-section>
       <div className="contact-panel">
-        <p className="section-kicker" data-section-reveal>Contact / next content</p>
-        <h2 id="contact-title" data-section-reveal>Ready for Shiza's verified details.</h2>
+        <p className="section-kicker" data-section-reveal>Contact</p>
+        <h2 id="contact-title" data-section-reveal>Professional correspondence.</h2>
         <p data-section-reveal>
-          Add a real email address, CV file, biography, research projects, and
-          publication records to turn this foundation into a production
-          portfolio without changing the scientific art direction.
+          For academic correspondence, collaboration inquiries, and verified
+          profile updates related to microbiology and molecular genetics.
         </p>
       </div>
     </section>
